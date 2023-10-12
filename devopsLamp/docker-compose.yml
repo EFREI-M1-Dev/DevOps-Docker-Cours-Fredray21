@@ -1,0 +1,25 @@
+version: '3'
+services:
+  # Service Apache avec PHP
+  apache:
+    image: php:apache  # Utilisez l'image PHP avec Apache
+    ports:
+      - "80:80"  # Redirige le port 80 de l'hôte vers le port 80 du conteneur
+    volumes:
+      - ./html:/var/www/html  # Montez votre site web dans le conteneur
+
+  # Service MySQL
+  mysql:
+    image: mysql:5.7  # Utilisez l'image MySQL 5.7 officielle
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Remplacez par votre mot de passe
+    volumes:
+      - ./mysql-data:/var/lib/mysql  # Stockage des données MySQL
+
+  # Service phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"  # Redirige le port 8080 de l'hôte vers le port 80 de phpMyAdmin
+    environment:
+      PMA_HOST: mysql  # Utilisez le nom du service MySQL en tant qu'hôte
