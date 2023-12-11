@@ -8,7 +8,7 @@ docker-compose up
 ![subject](./devopsDockerFile/subject.png)
 
 ```bash
-docker build -t name_image <path>(ici .)
+docker build -t name_image path
 ```
 
 ```bash
