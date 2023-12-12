@@ -1,0 +1,6 @@
+all:
+  hosts:
+    172.30.137.233:
+      ansible_connection: ssh
+      ansible_ssh_user: fredericd
+      ansible_ssh_pass: root
